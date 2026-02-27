@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusiv Motors | Vehículos Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="container nav-container">
+        <a href="#" class="logo">
+          <span class="logo-text">EXCLUSIV</span><span class="logo-dot">.</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#inventory">Inventario</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="#contact" class="btn btn-outline">Agendar Cita</a>
+          <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+      <div class="mobile-menu-content">
+        <span class="close-menu" id="close-menu">&times;</span>
+        <ul>
+          <li><a href="#hero" class="mobile-link">Inicio</a></li>
+          <li><a href="#inventory" class="mobile-link">Inventario</a></li>
+          <li><a href="#services" class="mobile-link">Servicios</a></li>
+          <li><a href="#contact" class="mobile-link">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-background">
+        <div class="overlay"></div>
+        <img
+          src="./assets/hero_premium_bg.png"
+          alt="Premium Luxury Car"
+          class="hero-img"
+          id="hero-image"
+        />
+      </div>
+      <div class="container hero-content">
+        <p class="hero-subtitle slide-up">Elegancia sin compromisos</p>
+        <h1 class="hero-title slide-up-delay">
+          Conduce el <br /><span class="text-accent">Futuro</span> Hoy.
+        </h1>
+        <p class="hero-description slide-up-delay-2">
+          Descubre nuestra exclusiva colección de vehículos y motocicletas de
+          alta gama, diseñados para los gustos más exigentes.
+        </p>
+        <div class="hero-buttons slide-up-delay-3">
+          <a href="#inventory" class="btn btn-primary">Ver Inventario</a>
+          <a href="#services" class="btn btn-text"
+            >Nuestros Servicios <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span class="scroll-text">Descubre</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Inventory Section -->
+    <section class="inventory py-20" id="inventory">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">
+            Colección <span class="text-accent">Destacada</span>
+          </h2>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="cars">Autos</button>
+            <button class="filter-btn" data-filter="motos">Motos</button>
+          </div>
+        </div>
+
+        <div class="grid grid-3 inventory-grid" id="inventory-container">
+          <!-- Vehicle Card 1 -->
+          <div class="vehicle-card reveal item-cars">
+            <div class="card-img-wrapper">
+              <img
+                src="./assets/luxury_suv.png"
+                alt="Audi RS Q8"
+                class="card-img"
+              />
+              <div class="card-badge">Nuevo</div>
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3 class="card-title">Porsche Cayenne Turbo GT</h3>
+                <p class="card-price">$285,000</p>
+              </div>
+              <ul class="card-specs">
+                <li><i class="fas fa-tachometer-alt"></i> 631 CV</li>
+                <li><i class="fas fa-calendar-alt"></i> 2024</li>
+                <li><i class="fas fa-gas-pump"></i> Gasolina</li>
+              </ul>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20la%20Porsche%20Cayenne%20Turbo%20GT"
+                  target="_blank"
+                  class="btn btn-full btn-whatsapp"
+                >
+                  <i class="fab fa-whatsapp"></i> Me interesa
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle Card 2 -->
+          <div class="vehicle-card reveal delay-1 item-motos">
+            <div class="card-img-wrapper">
+              <img
+                src="./assets/sport_motorcycle.png"
+                alt="Ducati Panigale V4"
+                class="card-img"
+              />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3 class="card-title">Ducati Panigale V4 S</h3>
+                <p class="card-price">$45,000</p>
+              </div>
+              <ul class="card-specs">
+                <li><i class="fas fa-tachometer-alt"></i> 214 CV</li>
+                <li><i class="fas fa-calendar-alt"></i> 2024</li>
+                <li><i class="fas fa-gas-pump"></i> Gasolina</li>
+              </ul>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20la%20Ducati%20Panigale%20V4S"
+                  target="_blank"
+                  class="btn btn-full btn-whatsapp"
+                >
+                  <i class="fab fa-whatsapp"></i> Me interesa
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle Card 3 -->
+          <div class="vehicle-card reveal delay-2 item-cars">
+            <div class="card-img-wrapper">
+              <img
+                src="./assets/luxury_sports_car.png"
+                alt="Mercedes AMG GT"
+                class="card-img"
+              />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3 class="card-title">Mercedes-AMG GT Black Series</h3>
+                <p class="card-price">$395,000</p>
+              </div>
+              <ul class="card-specs">
+                <li><i class="fas fa-tachometer-alt"></i> 720 CV</li>
+                <li><i class="fas fa-calendar-alt"></i> 2023</li>
+                <li><i class="fas fa-cogs"></i> Automático</li>
+              </ul>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20el%20Mercedes%20AMG%20GT"
+                  target="_blank"
+                  class="btn btn-full btn-whatsapp"
+                >
+                  <i class="fab fa-whatsapp"></i> Me interesa
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10 reveal">
+          <a href="#" class="btn btn-outline">Ver Catálogo Completo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services py-20 bg-darker" id="services">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">
+            Experiencia <span class="text-accent">Exclusiv</span>
+          </h2>
+          <p class="section-subtitle">
+            Más que vehículos, entregamos un estilo de vida de primer nivel.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="service-card reveal">
+            <div class="service-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h3 class="service-title">Financiamiento Elite</h3>
+            <p class="service-desc">
+              Planes de financiamiento hechos a medida con las mejores tasas del
+              mercado para vehículos premium.
+            </p>
+          </div>
+          <div class="service-card reveal delay-1">
+            <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3 class="service-title">Garantía Extendida</h3>
+            <p class="service-desc">
+              Cobertura total internacional y asistencia 24/7 en carretera para
+              tu total tranquilidad.
+            </p>
+          </div>
+          <div class="service-card reveal delay-2">
+            <div class="service-icon"><i class="fas fa-truck-pickup"></i></div>
+            <h3 class="service-title">Entrega a Domicilio VIP</h3>
+            <p class="service-desc">
+              Llevamos tu nuevo vehículo hasta la puerta de tu casa en
+              transporte cerrado y seguro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section class="contact py-20" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div class="contact-content">
+            <h2>¿Listo para dar el siguiente paso?</h2>
+            <p>
+              Nuestros asesores VIP están listos para guiarte en tu próxima
+              adquisición.
+            </p>
+            <div class="contact-info">
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i> Av. Libertador 1234, CABA
+              </div>
+              <div class="info-item">
+                <i class="fas fa-phone-alt"></i> +54 9 11 1234-5678
+              </div>
+              <div class="info-item">
+                <i class="fas fa-envelope"></i> vip@exclusiv.com
+              </div>
+            </div>
+          </div>
+          <div class="contact-action">
+            <a
+              href="https://wa.me/1234567890?text=Hola,%20deseo%20agendar%20una%20cita%20VIP"
+              target="_blank"
+              class="btn btn-whatsapp-lg"
+            >
+              <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+            <p class="response-time">Respuesta promedio: 5 minutos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#" class="logo">
+              <span class="logo-text">EXCLUSIV</span
+              ><span class="logo-dot">.</span>
+            </a>
+            <p>
+              El estándar de oro en automóviles y motocicletas de alta gama.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h3>Vehículos</h3>
+            <ul>
+              <li><a href="#">Superdeportivos</a></li>
+              <li><a href="#">SUVs Premium</a></li>
+              <li><a href="#">Motos Deportivas</a></li>
+              <li><a href="#">Motos Touring</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>Empresa</h3>
+            <ul>
+              <li><a href="#">Sobre Nosotros</a></li>
+              <li><a href="#">Servicios Financieros</a></li>
+              <li><a href="#">Postventa</a></li>
+              <li><a href="#">Ubicación</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Exclusiv Motors. Todos los derechos reservados.</p>
+          <div class="footer-legal">
+            <a href="#">Privacidad</a>
+            <a href="#">Términos</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
