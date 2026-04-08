@@ -1,3 +1,24 @@
+const EXCHANGE_RATE = 1000;
+window.currentCurrency = localStorage.getItem('currency') || 'USD';
+
+window.formatPrice = function(usdAmount) {
+    if (window.currentCurrency === 'ARS') {
+        const arsAmount = usdAmount * EXCHANGE_RATE;
+        return 'AR$ ' + arsAmount.toLocaleString('es-AR');
+    }
+    return 'U$D ' + usdAmount.toLocaleString('en-US');
+}
+
+window.toggleCurrency = function() {
+    window.currentCurrency = window.currentCurrency === 'USD' ? 'ARS' : 'USD';
+    localStorage.setItem('currency', window.currentCurrency);
+    location.reload();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('currency-toggle-btn');
+    if (btn) btn.innerText = window.currentCurrency === 'USD' ? 'USD \> ARS' : 'ARS \> USD';
+});
 /**
  * Script Principal de Componentes y Configuración Global
  * Maneja la configuración de Dark Mode, menú móvil y otras utilidades compartidas.
@@ -100,3 +121,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeHeaderLogic();
   initializeFooterLogic();
 });
+
+

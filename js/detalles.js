@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Script para renderizar la vista de Detalles de Vehículos (`detalles_vehiculos.html`)
  * Obtiene el ID de la URL y puebla los campos.
  */
@@ -9,69 +9,40 @@ const getVehicleById = (id) => {
   // Redefiniendo simplificadamente por scope
   const vehicles = [
     {
-      id: "v001",
-      brand: "Porsche",
-      model: "911 Carrera",
-      year: 2023,
-      price: 114000,
-      currency: "$",
-      mileage: 8400,
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAmTqkrf-Squ01psj3yABM6FDKVNQhcJwk4ZYOLpyQkmSFfu7rg8x7irWYarpbQHavpTAgk2GMa5Z67IVDnR2x3n7mvyqCw1vWa6SDWdWj3Nxd16uX3gry5t_LlOw27D_5orgqzY1o0zIblNP-qG6J6fRqHgs-zZQgpaotXSwXYzwgVC8orfuE9X3dIuXmRD4He9gj7f5tCv4Xhkp2pZnLurOyZhhKbf46ByrjDyMleiOJdGnBfdndo0Toram-4fxG6rYYxiQ_TCg4",
-      gallery: [
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAmTqkrf-Squ01psj3yABM6FDKVNQhcJwk4ZYOLpyQkmSFfu7rg8x7irWYarpbQHavpTAgk2GMa5Z67IVDnR2x3n7mvyqCw1vWa6SDWdWj3Nxd16uX3gry5t_LlOw27D_5orgqzY1o0zIblNP-qG6J6fRqHgs-zZQgpaotXSwXYzwgVC8orfuE9X3dIuXmRD4He9gj7f5tCv4Xhkp2pZnLurOyZhhKbf46ByrjDyMleiOJdGnBfdndo0Toram-4fxG6rYYxiQ_TCg4",
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAOR_AjPCpAOW9uf0PXV6c7ohTSVg0006AHzq6iqPA-BoC2GQUcw66UOhpPJRTq1G8-8WcV9urCXoGL4FRRA9ssb5SKZjonAxIa34YsZYxk0nH-GIPhQXDvLolPrTv1qggH3B_sVJFuyDuoc6u1PBmyu37rihzjydYmVpirSYXm3R1oLVoir-F4YhZpLireIK5bwpLzOQTZt3ytqqPcvkl4dHM7cv-tuXrnSdocoOHl9j09uAcSSmujDawXAlox-cFdTeC8Gk7e17I",
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDp_WgZATm40t1jxiXX9C13h95gy7uT9C8LyTeV87BD5FyfojNnuDDNdfMLm_scAcqt37siS7r8olDtXZpQZGHsnhWK36eKafDlrDq-3XKprK5pxZ6AMNjELLKdQRkywfbsZtebEl1xC9DK8PlwWEUkLkNLK1xh-W-Hbs5ucqdLkxGen_V6clHn0c_5_smewKbDh7w3thXBgeUmTciaykLkbGeQRfVtrQYYm2v4XG7brKDzwfEq4b4jNwvRohZvhWhvO7mfZP0Lg9w",
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCzFqppWj8Yu-08YoEbRdQn1PwnDaYubIz13BGqKSjDJkrGG9hxu0SrVDidCioub_M5GLRDMw4l_zkuFKPQbbsD89LbANffAKPggIxNxPCaWWO8IW2iuNYh_om2ABz_w7QiUPIzq8LYmEf1g35-Kk_Xg4sg71SC0iIoyE80EvKjxnAVor6-xyOwGMl5GpPRKB17kEni52B0ZPFe4arxgp5LmYxIkcTtVhhY3pAtkat8enm1-RKCT4mkKK4-UD8DGv1T2WwIk_nCnIg",
-      ],
-      description:
-        "Icónico diseño deportivo con motor biturbo de seis cilindros.",
-      specsFull: {
-        engine: "3.0L Turbo V6",
-        power: "385 HP",
-        acceleration: "3.8s",
-        transmission: "Automática 8-Vel",
-        drive: "RWD",
-        fuel: "8.5 km/l",
-      },
-      features: [
-        "Techo panorámico Sky Lounge",
-        "Sistema de sonido Harman Kardon",
-        "Asientos de cuero con calefacción",
-        'Llantas de aleación de 20"',
-      ],
+      id: "v001", brand: "Toyota", model: "SW4 Diamond", year: 2024, price: 65000, currency: "$", mileage: 1200,
+      image: "./assets/sw4_exterior.png", gallery: ["./assets/sw4_exterior.png", "./assets/sw4_interior.png"],
+      description: "SUV de lujo, versátil y con capacidad todo terreno insuperable.",
+      specsFull: { engine: "2.8L Turbodiesel", power: "204 HP", acceleration: "9.6s", transmission: "Automática 6-Vel", drive: "4x4", fuel: "10.5 L/100km" },
+      features: ["Asientos de cuero con ventilación", "Sistema de audio JBL", "Cámara 360", 'Llantas de aleación de 18"']
     },
     {
-      id: "v002",
-      brand: "Mercedes-Benz",
-      model: "GLE",
-      year: 2024,
-      price: 89500,
-      currency: "$",
-      mileage: 0,
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCosf9rnA5JVC77_0Mr0_yXVeTqnO1r7mkdDkpQ8n1pYyx5AebFp6pFEBDNqS7So1I_zhTuMelPprqXsFsfX1Ot4f6PDNinrm8FR2kJAdKPRearMF7UvphALuJY_aH0xvNvOVr3-e-0_Nlpe31uBRnFHku-a0fZymbqyTXWHlsWR_3zdPuT-AAKqXAqp03Z2UpwIaHtPhQs2cGrc2yI3r-rfJaJf-7eODV4yTJc6P09wEKhtBMHhEnt9z0WtyvQA_Px7_PRBPFyUJM",
-      gallery: [
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCosf9rnA5JVC77_0Mr0_yXVeTqnO1r7mkdDkpQ8n1pYyx5AebFp6pFEBDNqS7So1I_zhTuMelPprqXsFsfX1Ot4f6PDNinrm8FR2kJAdKPRearMF7UvphALuJY_aH0xvNvOVr3-e-0_Nlpe31uBRnFHku-a0fZymbqyTXWHlsWR_3zdPuT-AAKqXAqp03Z2UpwIaHtPhQs2cGrc2yI3r-rfJaJf-7eODV4yTJc6P09wEKhtBMHhEnt9z0WtyvQA_Px7_PRBPFyUJM",
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAOR_AjPCpAOW9uf0PXV6c7ohTSVg0006AHzq6iqPA-BoC2GQUcw66UOhpPJRTq1G8-8WcV9urCXoGL4FRRA9ssb5SKZjonAxIa34YsZYxk0nH-GIPhQXDvLolPrTv1qggH3B_sVJFuyDuoc6u1PBmyu37rihzjydYmVpirSYXm3R1oLVoir-F4YhZpLireIK5bwpLzOQTZt3ytqqPcvkl4dHM7cv-tuXrnSdocoOHl9j09uAcSSmujDawXAlox-cFdTeC8Gk7e17I",
-      ],
-      description:
-        "SUV de lujo que combina elegancia, tecnología y capacidad todo terreno.",
-      specsFull: {
-        engine: "3.0L Inline-6 Híbrido",
-        power: "362 HP",
-        acceleration: "5.5s",
-        transmission: "Automática 9-Vel",
-        drive: "AWD",
-        fuel: "10.2 km/l",
-      },
-      features: [
-        "MBUX con pantalla dual",
-        "Suspensión neumática Airmatic",
-        "Paquete Energizing Plus",
-        'Llantas AMG 21"',
-      ],
+      id: "v002", brand: "Volkswagen", model: "Amarok V6 Extreme", year: 2024, price: 55000, currency: "$", mileage: 0,
+      image: "./assets/amarok_exterior.png", gallery: ["./assets/amarok_exterior.png", "./assets/amarok_interior.png"],
+      description: "Pick-up premium con la mayor potencia en su segmento V6.",
+      specsFull: { engine: "3.0L V6 Turbodiesel", power: "258 HP", acceleration: "7.4s", transmission: "Automática 8-Vel", drive: "4MOTION", fuel: "9.2 L/100km" },
+      features: ["Asientos ErgoComfort", "Barra deportiva Extreme", "Estribos de aluminio", 'Llantas Talca 20"']
     },
+    {
+      id: "v003", brand: "Ford", model: "Ranger Raptor", year: 2024, price: 75000, currency: "$", mileage: 500,
+      image: "./assets/ranger_exterior.png", gallery: ["./assets/ranger_exterior.png", "./assets/ranger_interior.png"],
+      description: "La pickup deportiva más extrema del mercado, lista para el off-road.",
+      specsFull: { engine: "3.0L V6 EcoBoost", power: "397 HP", acceleration: "7.9s", transmission: "Automática 10-Vel", drive: "4x4", fuel: "11.5 L/100km" },
+      features: ["Amortiguadores FOX Racing", "Modos de manejo Baja", "Escape activo", 'Llantas 17" con neumáticos All-Terrain']
+    },
+    {
+      id: "v004", brand: "Peugeot", model: "208 GT", year: 2024, price: 29000, currency: "$", mileage: 15000,
+      image: "./assets/peugeot208_exterior.png", gallery: ["./assets/peugeot208_exterior.png", "./assets/peugeot208_interior.png"],
+      description: "El hatchback tope de gama con diseño súper deportivo y tecnológico.",
+      specsFull: { engine: "1.2L PureTech Turbo", power: "130 HP", acceleration: "8.7s", transmission: "Automática 6-Vel", drive: "FWD", fuel: "5.8 L/100km" },
+      features: ["Faros Full LED", "Techo panorámico", "Tablero 3D i-Cockpit", "Frenado autónomo de emergencia"]
+    },
+    {
+      id: "v005", brand: "Volkswagen", model: "Vento GLI", year: 2023, price: 42000, currency: "$", mileage: 22000,
+      image: "./assets/vento_exterior.png", gallery: ["./assets/vento_exterior.png", "./assets/vento_interior.png"],
+      description: "Sedán deportivo por excelencia, equilibrio perfecto entre confort y performance.",
+      specsFull: { engine: "2.0L TSI Turbo", power: "230 HP", acceleration: "6.8s", transmission: "Automática DSG 7-Vel", drive: "FWD", fuel: "7.5 L/100km" },
+      features: ["Suspensión deportiva multilink", "Tablero Digital Cockpit", "Iluminación interior ambiental", 'Llantas Polanko 18"']
+    }
   ];
   return vehicles.find((v) => v.id === id) || vehicles[0]; // Retorna el fake si no existe el ID
 };
@@ -94,7 +65,7 @@ function renderVehicleDetails(v) {
   // Breadcrumbs y Titulo Principal
   safelySetText("bc-model", `${v.brand} ${v.model}`);
   safelySetText("title-main", `${v.brand} ${v.model}`);
-  safelySetText("price-main", `${v.currency}${v.price.toLocaleString()} USD`);
+  safelySetText("price-main", `${window.formatPrice(v.price)}`);
   safelySetText("desc-main", v.description);
 
   // Tags
@@ -142,19 +113,19 @@ function renderVehicleDetails(v) {
       featuresList.innerHTML += `
             <li class="flex items-start gap-3">
                 <span class="material-symbols-outlined text-green-500 mt-0.5 text-lg">check_circle</span>
-                <span class="text-slate-700 dark:text-slate-300 font-medium">${feat}</span>
-            </li>
-            `;
+                <span class="text-slate-600 dark:text-slate-300 text-sm whitespace-normal break-words">${feat}</span>
+            </li>`;
     });
   }
 
-  // Financiacion Calc
-  safelySetText("fin-price", `${v.currency}${v.price.toLocaleString()}`);
+  setupCalculator(v);
+}
 
+function setupCalculator(v) {
   const engancheRange = document.getElementById("fin-enganche-range");
-  const mesesRange = document.getElementById("fin-meses-range");
-  const engancheVal = document.getElementById("fin-enganche-val");
   const enganchePct = document.getElementById("fin-enganche-pct");
+  const engancheVal = document.getElementById("fin-enganche-val");
+  const mesesRange = document.getElementById("fin-meses-range");
   const mesesVal = document.getElementById("fin-meses-val");
   const cuotaRes = document.getElementById("fin-cuota");
 
@@ -182,10 +153,10 @@ function renderVehicleDetails(v) {
     // Actualizar UI
     if (enganchePct) enganchePct.textContent = `${engancheRange.value}%`;
     if (engancheVal)
-      engancheVal.textContent = `${v.currency}${Math.round(depositAmt).toLocaleString()}`;
+      engancheVal.textContent = `${window.formatPrice(depositAmt)}`;
     if (mesesVal) mesesVal.textContent = months;
     if (cuotaRes)
-      cuotaRes.textContent = `${v.currency}${Math.round(cuota).toLocaleString()}`;
+      cuotaRes.textContent = `${window.formatPrice(cuota)}`;
   };
 
   // Bind Events
@@ -249,8 +220,8 @@ function bindInteractionEvents() {
       const vehicle =
         document.getElementById("title-main")?.innerText || "un vehículo";
 
-      const message = `Hola AutoElite, soy ${name}. Estoy interesado en el ${vehicle} que vi en su web.\n\nMis datos de contacto son:\nTeléfono: ${phone}\nCorreo: ${email}\n\nMe gustaría recibir más información.`;
-      const waUrl = `https://wa.me/15551234567?text=${encodeURIComponent(message)}`;
+      const message = `Hola Exclusiv Motors, soy ${name}. Estoy interesado en el ${vehicle} que vi en su web.\n\nMis datos de contacto son:\nTeléfono: ${phone}\nCorreo: ${email}\n\nMe gustaría recibir más información.`;
+      const waUrl = `https://wa.me/5492615340836?text=${encodeURIComponent(message)}`;
 
       window.open(waUrl, "_blank");
       form.reset();

@@ -1,5 +1,5 @@
-/**
- * Script Principal para la página de Inicio (`inicio.html`)
+﻿/**
+ * Script Principal para la página de Inicio (`index.html`)
  * Obtiene modelos mock, los renderiza en los destacados e implementa
  * interacción adicional.
  */
@@ -8,46 +8,46 @@
 const featuredVehicles = [
     {
         id: "v001",
-        brand: "Porsche",
-        model: "911 Carrera",
-        year: 2023,
-        price: 114000,
+        brand: "Toyota",
+        model: "SW4 Diamond",
+        year: 2024,
+        price: 65000,
         currency: "$",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmTqkrf-Squ01psj3yABM6FDKVNQhcJwk4ZYOLpyQkmSFfu7rg8x7irWYarpbQHavpTAgk2GMa5Z67IVDnR2x3n7mvyqCw1vWa6SDWdWj3Nxd16uX3gry5t_LlOw27D_5orgqzY1o0zIblNP-qG6J6fRqHgs-zZQgpaotXSwXYzwgVC8orfuE9X3dIuXmRD4He9gj7f5tCv4Xhkp2pZnLurOyZhhKbf46ByrjDyMleiOJdGnBfdndo0Toram-4fxG6rYYxiQ_TCg4",
-        description: "Icónico diseño deportivo con motor biturbo de seis cilindros.",
+        image: "./assets/sw4_exterior.png",
+        description: "SUV de lujo, versátil y con capacidad todo terreno insuperable.",
         specs: {
-            acceleration: "3.8s 0-100",
-            fuel: "Gasolina",
+            seats: "7 Asientos",
+            fuel: "Diésel",
             transmission: "Automático"
         }
     },
     {
         id: "v002",
-        brand: "Mercedes-Benz",
-        model: "GLE",
+        brand: "Volkswagen",
+        model: "Amarok V6 Extreme",
         year: 2024,
-        price: 89500,
+        price: 55000,
         currency: "$",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCosf9rnA5JVC77_0Mr0_yXVeTqnO1r7mkdDkpQ8n1pYyx5AebFp6pFEBDNqS7So1I_zhTuMelPprqXsFsfX1Ot4f6PDNinrm8FR2kJAdKPRearMF7UvphALuJY_aH0xvNvOVr3-e-0_Nlpe31uBRnFHku-a0fZymbqyTXWHlsWR_3zdPuT-AAKqXAqp03Z2UpwIaHtPhQs2cGrc2yI3r-rfJaJf-7eODV4yTJc6P09wEKhtBMHhEnt9z0WtyvQA_Px7_PRBPFyUJM",
-        description: "SUV de lujo que combina elegancia, tecnología y capacidad todo terreno.",
+        image: "./assets/amarok_exterior.png",
+        description: "Pick-up premium con la mayor potencia en su segmento V6.",
         specs: {
-            seats: "7 Asientos",
-            fuel: "Híbrido",
+            acceleration: "7.4s 0-100",
+            fuel: "Diésel",
             transmission: "Automático"
         }
     },
     {
         id: "v003",
-        brand: "Audi",
-        model: "RS e-tron GT",
-        year: 2023,
-        price: 140000,
+        brand: "Ford",
+        model: "Ranger Raptor",
+        year: 2024,
+        price: 75000,
         currency: "$",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHZjxaOb6uWRX6ATKBXIcMzA975A0u7cu7pN-cnaTn3k5UxhYQXOIc6-aSOYENIU7jjlxcEtdHnKvG9QyBaYgiVdm59gPkW5qmr_yaUEOmpVRsfkWoPigkOK5KFQx0xxrpZb1QcaaZKbV4akbe6s3KYqMd_aZxahM52bhjPEDMUZRSy94v2ccwdu6sonUG73i-jZ84vzahLZXDCwK9mr1Ha5KIJSmvs46oWIH3bQs3kZcfaWnbRkhBxnej3MP6kNmf4dkzxPlwrw0",
-        description: "El futuro es eléctrico. Potencia pura con un diseño aerodinámico revolucionario.",
+        image: "./assets/ranger_exterior.png",
+        description: "La pickup deportiva más extrema del mercado, lista para el off-road.",
         specs: {
-            fuel: "Electric",
-            acceleration: "3.3s 0-100",
+            acceleration: "7.9s 0-100",
+            fuel: "Gasolina",
             transmission: "Automático"
         }
     }
@@ -114,7 +114,7 @@ const createVehicleCardHTML = (vehicle) => {
                 <h3 class="text-xl font-bold text-slate-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors cursor-pointer" onclick="window.location.href='detalles_vehiculos.html?id=${vehicle.id}'">
                     ${vehicle.brand} ${vehicle.model}
                 </h3>
-                <span class="text-primary font-black text-lg shrink-0">${vehicle.currency}${vehicle.price.toLocaleString()}</span>
+                <span class="text-primary font-black text-lg shrink-0">${window.formatPrice(vehicle.price)}</span>
             </div>
             
             <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-2 min-h-[40px]">
@@ -145,3 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
         gridEl.innerHTML = cardsHtml;
     }
 });
+
+window.goToInventory = function() {
+    const brand = document.getElementById('home-brand')?.value || '';
+    const price = document.getElementById('home-price')?.value || '';
+    let params = new URLSearchParams();
+    if (brand) params.append('brand', brand);
+    if (price) params.append('price', price);
+    window.location.href = 'inventario.html?' + params.toString();
+};

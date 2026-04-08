@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Script Principal para la página de Inventario (`inventario.html`)
  * Obtiene modelos mock completos y maneja lógica de filtros y renderizado.
  */
@@ -6,89 +6,29 @@
 // Extended Mock DB para Inventario
 const inventoryVehicles = [
     {
-        id: "v001",
-        brand: "Porsche",
-        model: "911 Carrera",
-        bodyType: "Coupe",
-        year: 2023,
-        price: 114000,
-        currency: "$",
-        mileage: 8400,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmTqkrf-Squ01psj3yABM6FDKVNQhcJwk4ZYOLpyQkmSFfu7rg8x7irWYarpbQHavpTAgk2GMa5Z67IVDnR2x3n7mvyqCw1vWa6SDWdWj3Nxd16uX3gry5t_LlOw27D_5orgqzY1o0zIblNP-qG6J6fRqHgs-zZQgpaotXSwXYzwgVC8orfuE9X3dIuXmRD4He9gj7f5tCv4Xhkp2pZnLurOyZhhKbf46ByrjDyMleiOJdGnBfdndo0Toram-4fxG6rYYxiQ_TCg4",
-        description: "Icónico diseño deportivo con motor biturbo de seis cilindros.",
-        specs: {
-            fuel: "Gasolina",
-            transmission: "Automática"
-        },
-		tags: ["Premium"]
+        id: "v001", brand: "Toyota", model: "SW4 Diamond", bodyType: "SUV", year: 2024, price: 65000, currency: "$", mileage: 1200,
+        image: "./assets/sw4_exterior.png", description: "SUV de lujo, versátil y con capacidad todo terreno insuperable.",
+        specs: { fuel: "Diésel", transmission: "Automática" }, tags: ["Premium"]
     },
     {
-        id: "v002",
-        brand: "Mercedes-Benz",
-        model: "GLE",
-        bodyType: "SUV",
-        year: 2024,
-        price: 89500,
-        currency: "$",
-        mileage: 0,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCosf9rnA5JVC77_0Mr0_yXVeTqnO1r7mkdDkpQ8n1pYyx5AebFp6pFEBDNqS7So1I_zhTuMelPprqXsFsfX1Ot4f6PDNinrm8FR2kJAdKPRearMF7UvphALuJY_aH0xvNvOVr3-e-0_Nlpe31uBRnFHku-a0fZymbqyTXWHlsWR_3zdPuT-AAKqXAqp03Z2UpwIaHtPhQs2cGrc2yI3r-rfJaJf-7eODV4yTJc6P09wEKhtBMHhEnt9z0WtyvQA_Px7_PRBPFyUJM",
-        description: "SUV de lujo que combina elegancia, tecnología y capacidad todo terreno.",
-        specs: {
-            fuel: "Híbrido",
-            transmission: "Automática"
-        },
-		tags: ["Nuevo"]
+        id: "v002", brand: "Volkswagen", model: "Amarok V6 Extreme", bodyType: "Pick-up", year: 2024, price: 55000, currency: "$", mileage: 0,
+        image: "./assets/amarok_exterior.png", description: "Pick-up premium con la mayor potencia en su segmento V6.",
+        specs: { fuel: "Diésel", transmission: "Automática" }, tags: ["Nuevo"]
     },
     {
-        id: "v003",
-        brand: "Audi",
-        model: "RS e-tron GT",
-        bodyType: "Sedán",
-        year: 2023,
-        price: 140000,
-        currency: "$",
-        mileage: 5000,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHZjxaOb6uWRX6ATKBXIcMzA975A0u7cu7pN-cnaTn3k5UxhYQXOIc6-aSOYENIU7jjlxcEtdHnKvG9QyBaYgiVdm59gPkW5qmr_yaUEOmpVRsfkWoPigkOK5KFQx0xxrpZb1QcaaZKbV4akbe6s3KYqMd_aZxahM52bhjPEDMUZRSy94v2ccwdu6sonUG73i-jZ84vzahLZXDCwK9mr1Ha5KIJSmvs46oWIH3bQs3kZcfaWnbRkhBxnej3MP6kNmf4dkzxPlwrw0",
-        description: "El futuro es eléctrico. Potencia pura con un diseño aerodinámico revolucionario.",
-        specs: {
-            fuel: "Eléctrico",
-            transmission: "Automática"
-        },
-		tags: ["Eco"]
+        id: "v003", brand: "Ford", model: "Ranger Raptor", bodyType: "Pick-up", year: 2024, price: 75000, currency: "$", mileage: 500,
+        image: "./assets/ranger_exterior.png", description: "La pickup deportiva más extrema del mercado, lista para el off-road.",
+        specs: { fuel: "Gasolina", transmission: "Automática" }, tags: ["Premium"]
     },
-	{
-        id: "v004",
-        brand: "Audi",
-        model: "Q3 Sportback",
-        bodyType: "SUV",
-        year: 2023,
-        price: 45900,
-        currency: "$",
-        mileage: 12500,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBtd1wDgeRciv1LMaCxO1AhIEmMDw8Mj9OjxzSj0a7FLuQ-QliwCUY6rD6jp8u3zYqLMrsEGMCVegOxeJSVuUQp34okriVOdSQKSXonTdfSgTnQQcOtKI7JS5ubSrgqwVbO1u2hHqn6NhxMRi5CoUpkdpD5Jy1ALDmpBZAGSg8hkbCUvpOEXvdLtf6qSrw3WYVrY6sDXzrz11jh00iRkFFuINBvHqtZegqsYAmhECAAmzqhx9ZoACY9wPX1GNOoC72-9Ro3qUotGOI",
-        description: "35 TFSI Black Line Edition.",
-        specs: {
-            fuel: "Gasolina",
-            transmission: "Automática"
-        },
-		tags: ["Oferta"]
+    {
+        id: "v004", brand: "Peugeot", model: "208 GT", bodyType: "Hatchback", year: 2024, price: 29000, currency: "$", mileage: 15000,
+        image: "./assets/peugeot208_exterior.png", description: "El hatchback tope de gama con diseño súper deportivo y tecnológico.",
+        specs: { fuel: "Gasolina", transmission: "Automática" }, tags: ["Eco"]
     },
-	{
-        id: "v005",
-        brand: "Chevrolet",
-        model: "Camaro",
-        bodyType: "Coupe",
-        year: 2022,
-        price: 38500,
-        currency: "$",
-        mileage: 24000,
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDqyxXGp7t75t2BsC-CybRRuPkyGZM0veoePKxVyuQtjHGmsMgMurMv38NPQ-Ji8lbM1kb37r7uM5uiUQXIsgI30tFhaOw_58RdLFyLmkobvO8MMwIscWL8nyqTKfsQhCDZXgW3t734UscXDjf7uOROP06eRfJcmY6UwPN6wvErjtx2ruahvNmDD2kd6yoXO6gM6TjltP7KXsz3VBFTznzUMO4EYbzeksWmxbcoliQiR5PyIXbQW_rpxN4gXrVu7VNhnocqEkdE2ck",
-        description: "V8 SS Coupe. Puro músculo americano.",
-        specs: {
-            fuel: "Gasolina",
-            transmission: "Automática"
-        },
-		tags: []
+    {
+        id: "v005", brand: "Volkswagen", model: "Vento GLI", bodyType: "Sedán", year: 2023, price: 42000, currency: "$", mileage: 22000,
+        image: "./assets/vento_exterior.png", description: "Sedán deportivo por excelencia, equilibrio perfecto entre confort y performance.",
+        specs: { fuel: "Gasolina", transmission: "Automática" }, tags: ["Oferta"]
     }
 ];
 
@@ -108,65 +48,57 @@ let currentFilters = {
 function renderInventory(vehicles) {
     const gridEl = document.getElementById('inventory-grid');
     const countEl = document.getElementById('inventory-count');
-    
+    const emptyEl = document.getElementById('inventory-empty');
+
     if (!gridEl) return;
-    
-    // Filtrado
-    const filteredVehicles = vehicles.filter(v => {
-        // Body Type Match
+
+    // Aplicar Filtros (And/Or logic básica)
+    let filtered = vehicles.filter(v => {
+        // Body Type
         if (currentFilters.bodyType.length > 0 && !currentFilters.bodyType.includes(v.bodyType)) return false;
         
-        // Price Match
-        if (currentFilters.minPrice && v.price < currentFilters.minPrice) return false;
-        if (currentFilters.maxPrice && v.price > currentFilters.maxPrice) return false;
+        // Price Max/Min
+        if (currentFilters.minPrice !== null && v.price < currentFilters.minPrice) return false;
+        if (currentFilters.maxPrice !== null && v.price > currentFilters.maxPrice) return false;
         
-        // Fuel Match
+        // Fuel
         if (currentFilters.fuel.length > 0 && !currentFilters.fuel.includes(v.specs.fuel)) return false;
         
-        // Transmission Match
-        if (currentFilters.transmission && v.specs.transmission !== currentFilters.transmission) return false;
+        // Transmission
+        if (currentFilters.transmission && currentFilters.transmission !== 'Cualquiera' && v.specs.transmission !== currentFilters.transmission) return false;
         
-        // Search Term Match
+        // Search Term (brand, model, description)
         if (currentFilters.searchTerm) {
-            const search = currentFilters.searchTerm.toLowerCase();
-            const fullName = `${v.brand} ${v.model}`.toLowerCase();
-            if (!fullName.includes(search)) return false;
+            const term = currentFilters.searchTerm.toLowerCase();
+            const searchStr = `${v.brand} ${v.model} ${v.description}`.toLowerCase();
+            if (!searchStr.includes(term)) return false;
         }
-        
+
         return true;
     });
 
-    // Count Update
-    if(countEl) countEl.textContent = `Mostrando ${filteredVehicles.length} vehículos`;
+    // Actualizar count UI
+    if (countEl) countEl.textContent = `${filtered.length} Vehículos Encontrados`;
 
-    // Render HTML
-    if (filteredVehicles.length === 0) {
-        gridEl.innerHTML = `
-            <div class="col-span-full py-20 text-center flex flex-col items-center">
-               <span class="material-symbols-outlined text-[64px] text-slate-300 dark:text-slate-600 mb-4">search_off</span>
-               <h3 class="text-xl font-bold text-slate-700 dark:text-slate-200">No se encontraron vehículos</h3>
-               <p class="text-slate-500 dark:text-slate-400 mt-2">Intenta ajustar o limpiar tus filtros actuales.</p>
-               <button id="btn-clear-empty" class="mt-6 px-6 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition">Limpiar Filtros</button>
-            </div>
-        `;
-		
-		const btn = document.getElementById('btn-clear-empty');
-		if(btn) btn.addEventListener('click', clearFilters);
+    // Empty State
+    if (filtered.length === 0) {
+        gridEl.innerHTML = '';
+        if (emptyEl) emptyEl.classList.remove('hidden');
         return;
+    } else {
+        if (emptyEl) emptyEl.classList.add('hidden');
     }
 
+    // Render HTML
     let cardsHtml = '';
-    filteredVehicles.forEach(v => {
-        // Tag especial HTML
+    filtered.forEach(v => {
         let tagHtml = '';
         if (v.tags && v.tags.length > 0) {
-            const tagColors = {
-                "Eco": "bg-green-500",
-                "Oferta": "bg-red-500",
-                "Nuevo": "bg-blue-500",
-                "Premium": "bg-yellow-500 text-slate-900"
-            };
-            const colorClass = tagColors[v.tags[0]] || "bg-primary text-white";
+            let colorClass = 'bg-primary text-white'; // Default Premium
+            if (v.tags[0] === 'Eco') colorClass = 'bg-green-500 text-white';
+            if (v.tags[0] === 'Oferta') colorClass = 'bg-red-500 text-white';
+            if (v.tags[0] === 'Nuevo') colorClass = 'bg-slate-900 text-white dark:bg-white dark:text-slate-900';
+            
             tagHtml = `
             <div class="absolute top-3 left-3 ${colorClass} px-2 py-1 rounded text-xs font-bold shadow-sm flex items-center gap-1">
                 ${v.tags[0]}
@@ -211,7 +143,7 @@ function renderInventory(vehicles) {
                 </div>
                 
                 <div class="mt-auto flex items-center justify-between">
-                    <span class="text-xl font-black text-primary">${v.currency}${v.price.toLocaleString()}</span>
+                    <span class="text-xl font-black text-primary">${window.formatPrice(v.price)}</span>
                     <button onclick="window.location.href='detalles_vehiculos.html?id=${v.id}'" class="text-sm font-bold text-primary hover:text-blue-700 flex items-center gap-1 transition-colors">
                         Ver Detalles
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -238,12 +170,12 @@ function updateFilters() {
     currentFilters.fuel = Array.from(fuelBtns).map(btn => btn.dataset.value);
 
     // Prices
-    const minP = document.getElementById('filter-price-min').value;
-    const maxP = document.getElementById('filter-price-max').value;
-    currentFilters.minPrice = minP ? parseInt(minP, 10) : null;
-    currentFilters.maxPrice = maxP ? parseInt(maxP, 10) : null;
+    const minPriceStr = document.getElementById('filter-price-min')?.value;
+    const maxPriceStr = document.getElementById('filter-price-max')?.value;
+    currentFilters.minPrice = minPriceStr ? parseInt(minPriceStr) : null;
+    currentFilters.maxPrice = maxPriceStr ? parseInt(maxPriceStr) : null;
 
-    // Transmission Radio
+    // Transmission
     const transRadio = document.querySelector('.filter-transmission:checked');
     currentFilters.transmission = transRadio ? transRadio.value : null;
 
@@ -285,6 +217,36 @@ function updateFuelBtnState(btn, isActive) {
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
+    // Read URL parameters for filters
+    const params = new URLSearchParams(window.location.search);
+    const brandParam = params.get('brand');
+    const priceParam = params.get('price');
+
+    if (brandParam) {
+        currentFilters.searchTerm = brandParam;
+        const searchInput = document.getElementById('search-inventory');
+        if(searchInput) searchInput.value = brandParam;
+    }
+
+    if (priceParam) {
+        let min = null, max = null;
+        if (priceParam === '$20k - $50k') { min = 20000; max = 50000; }
+        else if (priceParam === '$50k - $100k') { min = 50000; max = 100000; }
+        else if (priceParam === '+$100k') { min = 100000; }
+        
+        currentFilters.minPrice = min;
+        currentFilters.maxPrice = max;
+        
+        if (min) {
+            const minEl = document.getElementById('filter-price-min');
+            if (minEl) minEl.value = min;
+        }
+        if (max) {
+            const maxEl = document.getElementById('filter-price-max');
+            if (maxEl) maxEl.value = max;
+        }
+    }
+
     // Evento de bddad inicial
     renderInventory(inventoryVehicles);
 
